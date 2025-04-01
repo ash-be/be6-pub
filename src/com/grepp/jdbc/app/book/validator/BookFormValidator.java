@@ -44,19 +44,10 @@ public class BookFormValidator implements Validator<BookForm> {
 
         // 카테고리 구분
         try {
-            Category.valueOf(form.getCategory()); // 대소문자 민감함 (대문자로 입력 받아야 함)
+            Category.valueOf(form.getCategory().toUpperCase()); // 소문자로 입력했을 때도 통과됐으면 좋겠어서 upper case
         } catch (IllegalArgumentException e) {
             throw new ValidException("카테고리는 NOVEL, POEM, HUMANITY 중 하나여야 합니다.");
         }
-
-//        if(!((form.getCategory()=="NOVEL")
-//                ||(form.getCategory()=="NOVEL")
-//                ||(form.getCategory()=="NOVEL"))){
-//            throw new ValidException("카테고리는 NOVEL, POEM, HUMANITY로 구분됩니다.");
-//        }
-//        if(Category.valueOf(form.getCategory())){
-//            throw new ValidException("카테고리는 NOVEL, POEM, HUMANITY 중 하나여야 합니다.");
-//        }
 
         if(form.getRentCnt() == null || form.getRentCnt() < 0){
             throw new ValidException("도서 재고는 0보다 작을 수 없습니다.");

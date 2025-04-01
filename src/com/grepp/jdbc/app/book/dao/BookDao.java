@@ -16,7 +16,7 @@ import java.util.Optional;
 
 public class BookDao {
 
-    // jdbcTemp이 뭔지 아직도 모르겠지만,
+    // jdbcTemp을 구현하는 방법 온전히 이해한 건 아니지만...
     // url, user, password를 필드로 하고 있는 jdbcTemp 갖고 와서, 초기화
     private final JdbcTemplate jdbcTemplate = JdbcTemplate.getInstance();
 
